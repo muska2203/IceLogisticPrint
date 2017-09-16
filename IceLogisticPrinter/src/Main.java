@@ -41,11 +41,13 @@ public class Main {
         ImportFromExcel im = new ImportFromExcel();
         List<Info> list = im.getItemList(excel);
         if(!list.isEmpty()) {
-            for(Info info : list) {
-                System.out.println(info.getName()+" || "+info.getCarNumber()+" || "+info.getNumber());
-                Printer printer = new Printer(xShift,yShift,info);
-                printer.printAll();
-            }
+//            for(Info info : list) {
+//                System.out.println(info.getName()+" || "+info.getCarNumber()+" || "+info.getNumber());
+//                Printer printer = new Printer(xShift,yShift,info);
+//                printer.printAll();
+//            }
+Printer printer = new Printer(xShift,yShift,list.get(0));
+printer.printAll();
         } else {
             Printer printer = new Printer(xShift,yShift,null);
             printer.printAll();
