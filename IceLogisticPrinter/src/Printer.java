@@ -59,7 +59,7 @@ public class Printer implements Printable{
                 g2.setFont(new Font("Cambria",Font.PLAIN,14));
                 if(Printer.info!=null) {
                     g2.drawString(""+Printer.info.getNumber(), (320f+xShift), (55f+yShift));
-                    g2.drawString("Марка машины", (60f+xShift), (170f+yShift));
+                    g2.drawString(Printer.info.getCar(), (60f+xShift), (170f+yShift));
                     g2.drawString(Printer.info.getCarNumber(), (180f+xShift), (170f+yShift));
                     g2.drawString(Printer.info.getName(), (60f+xShift), (285f+yShift));
                 } else {

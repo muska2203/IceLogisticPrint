@@ -22,6 +22,7 @@ public class Main {
         SomeFile excel = null;
         float xShift = 0;
         float yShift = 0;
+        String json = "";
         Properties properties = new Properties();
         try {
             FileInputStream fis = new FileInputStream("src/resourses/configs.properties");
@@ -29,6 +30,7 @@ public class Main {
             fis.close();
             xShift = Float.valueOf(properties.getProperty("xShift"));
             yShift = Float.valueOf(properties.getProperty("yShift"));
+            json = properties.getProperty("cars");
         } catch(IOException e) {
             System.err.println("Файл не существует");
         }
@@ -41,13 +43,12 @@ public class Main {
         ImportFromExcel im = new ImportFromExcel();
         List<Info> list = im.getItemList(excel);
         if(!list.isEmpty()) {
-//            for(Info info : list) {
-//                System.out.println(info.getName()+" || "+info.getCarNumber()+" || "+info.getNumber());
-//                Printer printer = new Printer(xShift,yShift,info);
-//                printer.printAll();
-//            }
-Printer printer = new Printer(xShift,yShift,list.get(0));
-printer.printAll();
+            for(Info info : list) {
+                info.setCar(Helper.getCar(info.getCarNumber(), json));
+                System.out.println(info.getName()+" || "+info.getCarNumber()+" || "+info.getCar()+" || "+info.getNumber());
+                Printer printer = new Printer(xShift,yShift,info);
+                printer.printAll();
+            }
         } else {
             Printer printer = new Printer(xShift,yShift,null);
             printer.printAll();

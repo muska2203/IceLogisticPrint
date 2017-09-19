@@ -11,6 +11,7 @@
 public class Info {
     private String name;
     private String carNumber;
+    private String car;
     private int number;
 
     public Info(String name, String carNumber, double number) {
@@ -29,6 +30,14 @@ public class Info {
 
     public int getNumber() {
         return number;
+    }
+
+    public String getCar() {
+        return car;
+    }
+
+    public void setCar(String car) {
+        this.car = car;
     }
     
     private String initName(String name) {
