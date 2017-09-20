@@ -1,9 +1,11 @@
+package main;
+
 
 import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
+import java.util.HashMap;
 import java.util.Map;
-
-import java.util.Properties;
-
+import java.lang.reflect.Type;
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -17,7 +19,8 @@ import java.util.Properties;
 public class Helper {
     public static String getCar(String number, String json) {
         Gson gson = new Gson();
-        Map<String,String> map = gson.fromJson(json, Map.class);
+        Type type = new TypeToken<Map<String, String>>(){}.getType();
+        Map<String,String> map = gson.fromJson(json, type);
         return map.get(number);
     }
 }

@@ -1,3 +1,5 @@
+package main;
+
 
 import file.SomeFile;
 import java.io.File;
