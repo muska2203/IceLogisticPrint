@@ -16,10 +16,11 @@ public class Info {
     private String car;
     private int number;
 
-    public Info(String name, String carNumber, double number) {
+    public Info(String name, String carNumber, double number, String car) {
         this.name = this.initName(name);
         this.carNumber = carNumber;
         this.number = (int)Math.round(number);
+        this.car = car;
     }
 
     public String getName() {
