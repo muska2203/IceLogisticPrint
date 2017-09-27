@@ -1,6 +1,7 @@
 package main;
 
 import file.SomeFile;
+import java.io.FileInputStream;
 import java.util.List;
 import javax.swing.JFileChooser;
 
@@ -52,10 +53,10 @@ public class MainFrame extends javax.swing.JFrame {
             }
         });
 
-        jButton3.setText("renameCar");
+        jButton3.setText("Добавить машину");
         jButton3.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseReleased(java.awt.event.MouseEvent evt) {
-                ss(evt);
+                addCar(evt);
             }
         });
 
@@ -63,25 +64,20 @@ public class MainFrame extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 190, Short.MAX_VALUE)
-                .addComponent(jButton3)
-                .addContainerGap())
+            .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jButton3, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 193, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton1)
-                    .addComponent(jButton3))
+                .addComponent(jButton1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jButton2)
-                .addContainerGap(237, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jButton3)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
@@ -114,14 +110,13 @@ public class MainFrame extends javax.swing.JFrame {
         printer.printAll();
     }//GEN-LAST:event_runTest
 
-    private void ss(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ss
-        //"АВ 1665-6":"Мерседес Бенс"
-        this.dispose();
-        Property p = new Property(Constants.CONFIGS_URL);
-        p.renameCar("АВ 1665-6", "Мерседес Бенс");
-        p.saveProperties();
+    private void addCar(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_addCar
+        //"АВ 1665-6":"Мерседес Бенс"=
+        AddCar addCar = new AddCar();
+        addCar.setVisible(true);
+        
         // TODO add your handling code here:
-    }//GEN-LAST:event_ss
+    }//GEN-LAST:event_addCar
 
     /**
      * @param args the command line arguments
