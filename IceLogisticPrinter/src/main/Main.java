@@ -2,6 +2,8 @@ package main;
 
 import file.SomeFile;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JFileChooser;
 
 /*
@@ -31,6 +33,11 @@ public class Main {
                 System.out.println(info.getName() + " || " + info.getCarNumber() + " || " + info.getCar() + " || " + info.getNumber());
                 Printer printer = new Printer(property.getxShift(), property.getyShift(), info);
                 printer.printAll();
+                try {
+                    Thread.sleep(1000);
+                } catch (InterruptedException ex) {
+                    Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
+                }
             }
         } else {
             Printer printer = new Printer(property.getxShift(), property.getyShift(), null);
