@@ -3,6 +3,8 @@ package main;
 import file.SomeFile;
 import java.io.FileInputStream;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JFileChooser;
 
 /*
@@ -99,6 +101,11 @@ public class MainFrame extends javax.swing.JFrame {
                 System.out.println(info.getName() + " || " + info.getCarNumber() + " || " + info.getCar() + " || " + info.getNumber());
                 Printer printer = new Printer(property.getxShift(), property.getyShift(), info);
                 printer.printAll();
+                try {
+                    Thread.sleep(2000);
+                } catch (InterruptedException ex) {
+                    Logger.getLogger(MainFrame.class.getName()).log(Level.SEVERE, null, ex);
+                }
             }
         }
     }//GEN-LAST:event_FileChoosed
