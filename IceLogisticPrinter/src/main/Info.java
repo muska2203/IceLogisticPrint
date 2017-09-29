@@ -20,7 +20,11 @@ public class Info {
         this.name = this.initName(name);
         this.carNumber = carNumber;
         this.number = (int)Math.round(number);
-        this.car = car;
+        if(car!=null){
+            this.car = car;
+        } else {
+            this.car = "";
+        }
     }
 
     public String getName() {
